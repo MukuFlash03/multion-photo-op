@@ -20,3 +20,13 @@ def addBookToCart(bookName, authorName):
 
     print(cart_response.message)
     return cart_response
+
+def addItemToCart(category, details):
+    cart_response = client.browse(
+        cmd=f"Add the following {category} item to my cart: {details}",
+        url="https://amazon.com",
+        local=True,
+    )
+
+    print(cart_response.message)
+    return cart_response
