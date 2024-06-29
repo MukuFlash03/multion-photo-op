@@ -17,14 +17,14 @@ MODEL_NAME = "claude-3-opus-20240229"
 
 
 # Image as a file
-IMAGE_PATH="./assets/sunset.jpeg"
+# IMAGE_PATH="./assets/sunset.jpeg"
+IMAGE_PATH="./assets/atomic_habits.jpeg"
+# IMAGE_PATH="./assets/jack_and_the_beanstalk.jpeg"
 
 with open(IMAGE_PATH, "rb") as image_file:
     binary_data = image_file.read()
     base_64_encoded_data = base64.b64encode(binary_data)
     base64_string = base_64_encoded_data.decode('utf-8')
-
-
 
 # Image as a URL
 # IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Machu_Picchu%2C_Peru_%282018%29.jpg/2560px-Machu_Picchu%2C_Peru_%282018%29.jpg"
@@ -39,7 +39,10 @@ message_list = [
         "role": 'user',
         "content": [
             {"type": "image", "source": {"type": "base64", "media_type": "image/jpeg", "data": base64_string}},
-            {"type": "text", "text": "Describe this image in two sentences."}
+            # {"type": "text", "text": "Describe this image in two sentences."}
+            {
+                "type": "text", 
+                "text": "I will be uploading images of books that I would like to buy. Can you please give me the name of the book and the author of the book in this format: Name: <name of book> Author: <author name>."}
         ]
     }
 ]
